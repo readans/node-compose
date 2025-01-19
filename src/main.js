@@ -1,10 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const userRoute = require('./routes/user')
 const taskRoute = require('./routes/task')
 
 const app = express();
 
-app.set('port', process.env.PORT || 3000);
+const { PORT } = process.env;
+
+app.set('port', PORT || 3000);
 
 app.use('/user', userRoute);
 app.use('/task', taskRoute);
